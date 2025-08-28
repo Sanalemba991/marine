@@ -103,11 +103,11 @@ export default function MarineEquipmentPage() {
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             >
               Trusted Marine & Oilfield{' '}
-              <span className="text-gray-600">Equipment Supplier</span> in UAE
+              <span className="text-[#5555]">Equipment Supplier</span> in UAE
             </motion.h1>
             
             <motion.div 
-              className="space-y-4 text-gray-700"
+              className="space-y-4 text-[#555555]"
               initial={{ opacity: 0 }}
               animate={isContentInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}

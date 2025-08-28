@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import MarineEquipmentPage from "./Components/MarineEquipmentPage";
+import ProductsSection from "./Components/Products";
+import WhyChooseUs from "./Components/WhyChooseUs";
+
 
 
 export default function Banner() {
@@ -229,6 +232,9 @@ const banners = [
         </div>
       </div>
       <MarineEquipmentPage/>
+      <ProductsSection/>
+      <WhyChooseUs/>
+      
     </div>
     
   );
