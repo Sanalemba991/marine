@@ -11,7 +11,7 @@ interface StatCardProps {
 
 const StatCard = ({ number, label, index }: StatCardProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true,  });
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) => Math.round(latest));
 
@@ -29,7 +29,7 @@ const StatCard = ({ number, label, index }: StatCardProps) => {
   return (
     <motion.div 
       ref={ref}
-      className="text-center text-white"
+      className="text-center text-black"
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ 
@@ -59,7 +59,7 @@ const StatCard = ({ number, label, index }: StatCardProps) => {
 
 export default function MarineEquipmentPage() {
   const contentRef = useRef(null);
-  const isContentInView = useInView(contentRef, { once: true, amount: 0.2 });
+  const isContentInView = useInView(contentRef, { once: true,  });
 
   return (
     <div className="min-h-screen py-12">
@@ -72,7 +72,7 @@ export default function MarineEquipmentPage() {
             <div 
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
               style={{
-                backgroundImage: `/ban.png')`
+                backgroundImage: `url('/ban.png')`
               }}
             />
             
