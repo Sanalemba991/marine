@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import MarineEquipmentPage from "./Components/MarineEquipmentPage";
 import ProductsSection from "./Components/Products";
 import WhyChooseUs from "./Components/WhyChooseUs";
+import MarineSupplyPage from "./Components/MarineSupplyPage";
+import FAQ from "./Components/Faq";
 
 
 
@@ -234,6 +236,8 @@ const banners = [
       <MarineEquipmentPage/>
       <ProductsSection/>
       <WhyChooseUs/>
+      <MarineSupplyPage/>
+      <FAQ/>
       
     </div>
     

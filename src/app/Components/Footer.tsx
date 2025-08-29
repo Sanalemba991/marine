@@ -70,15 +70,27 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white">
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 py-4 sm:py-6">
+    <footer 
+      className=" text-white relative"
+      style={{
+        backgroundImage: "url('/footerhome.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Darker overlay for better text readability */}
+      <div className="absolute inset-0  bg-opacity-85"></div>
+      
+      {/* Content with relative positioning to stay above overlay */}
+      <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-4 py-4 sm:py-6">
         {/* Newsletter - Smaller */}
         <div className="mb-8 sm:mb-12 lg:mb-16">
           <div className="max-w-lg mx-auto text-center px-2">
             <h3 className="text-sm sm:text-base font-medium text-white mb-1">
               Subscribe to our Newsletter
             </h3>
-            <p className="text-xs text-gray-400 mb-2">
+            <p className="text-xs text-gray-300 mb-2">
               Stay updated with our latest news
             </p>
             <form
@@ -90,13 +102,13 @@ const Footer = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-2 py-1 text-xs bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-1 focus:ring-white text-white placeholder-gray-400"
+                className="flex-1 px-2 py-1 text-xs bg-gray-800 bg-opacity-90 border border-gray-600 rounded focus:outline-none focus:ring-1 focus:ring-white text-white placeholder-gray-300"
                 required
               />
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="px-3 py-1 text-xs bg-white text-black rounded hover:bg-blue-400 disabled:opacity-50"
+                className="px-3 py-1 text-xs bg-white text-black rounded hover:bg-blue-400 hover:text-white transition-all duration-300 disabled:opacity-50"
               >
                 {status === "loading" ? "Subscribing..." : "Subscribe"}
               </button>
@@ -104,7 +116,7 @@ const Footer = () => {
             {message && (
               <p
                 className={`mt-1 text-xs ${
-                  status === "success" ? "text-green-400" : "text-red-400"
+                  status === "success" ? "text-green-300" : "text-red-300"
                 }`}
               >
                 {message}
@@ -131,19 +143,19 @@ const Footer = () => {
                 />
               </Link>
             </div>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-gray-300">
               Transforming ideas into digital reality with innovative solutions.
             </p>
             <div className="flex justify-center sm:justify-start space-x-2">
               <a
                 href="https://www.facebook.com/profile.php?id=100087290161175&mibextid=ZbWKwL"
-                className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
               >
                 <FontAwesomeIcon icon={faFacebook} className="h-4 w-4" />
               </a>
               <a
                 href="https://www.instagram.com/digitallinktechnologyllc/"
-                className="text-gray-400 hover:text-pink-500 transition-colors duration-300"
+                className="text-gray-300 hover:text-pink-500 transition-colors duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -152,86 +164,68 @@ const Footer = () => {
 
               <a
                 href="https://www.linkedin.com/company/digital-link-technology-uae/posts/?feedView=all"
-                className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
               >
                 <FontAwesomeIcon icon={faLinkedin} className="h-4 w-4" />
               </a>
             </div>
           </div>
 
-          {/* Quick Links - Smaller */}
+          {/* About Section - Added as requested */}
           <div className="text-center sm:text-left">
-            <h3 className="text-sm font-medium text-white mb-2">Solutions</h3>
-            <ul className="space-y-1 text-xs">
-              {[
-                { name: "IT & AI Solutions", path: "/solution/it" },
-                {
-                  name: "Elevator ELV Solutions",
-                  path: "/solution/elevatorelvsolutions",
-                },
-                { name: "Audio & Visual Solution", path: "/solution/audio" },
-                {
-                  name: "Surveillance Solutions",
-                  path: "/solution/servalliance",
-                },
-              ].map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.path}
-                    className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <h3 className="text-sm font-medium text-white mb-2">About Us</h3>
+            <p className="text-xs text-gray-300">
+              Since 2023, Oasis Marine Trading LLC specializes in marine and oil field supply. 
+              Since our inception, we've been dedicated to delivering exceptional service and 
+              solutions to meet the unique needs of our clients in these demanding industries.
+            </p>
           </div>
 
-          {/* Resources - Smaller */}
+          {/* Information - Updated with requested links */}
           <div className="text-center sm:text-left">
-            <h3 className="text-sm font-medium text-white mb-2">Who We Are</h3>
+            <h3 className="text-sm font-medium text-white mb-2">Information</h3>
             <ul className="space-y-1 text-xs">
               <li>
                 <Link
-                  href="/history"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                  href="/"
+                  className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
                 >
-                  Overview & History
+                  Home
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/careers"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                  href="/shop"
+                  className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
                 >
-                  Careers
+                  Shop
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/awards"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                  href="/about"
+                  className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
                 >
-                  Awards
+                  About
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/our-company"
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                  href="/contact"
+                  className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
                 >
-                  Our Company
+                  Contact
                 </Link>
               </li>
             </ul>
           </div>
 
           {/* Contact - Smaller */}
-          <div className="text-center">
-            <h3 className="text-sm font-medium text-white mb-2">Office</h3>
-            <ul className="space-y-3 text-xs text-gray-400">
+          <div className="text-center sm:text-left">
+            <h3 className="text-sm font-medium text-white mb-2">Contact Us</h3>
+            <ul className="space-y-3 text-xs text-gray-300">
               {/* Location with clickable map icon */}
-              <li className="flex justify-center">
+              <li className="text-center sm:text-left">
                 <button
                   onClick={() => {
                     const encodedAddress = encodeURIComponent(
@@ -243,33 +237,33 @@ const Footer = () => {
                   className="inline-flex items-center gap-2 hover:text-blue-300 transition-colors duration-300 group"
                 >
                   <MapPin className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                  <span className="text-xs hover:text-blue-500 group-hover:no-underline cursor-pointer">
+                  <span className="text-xs hover:text-blue-300 group-hover:no-underline cursor-pointer">
                     Olaya Street, Riyadh, Saudi Arabia
                   </span>
                 </button>
               </li>
 
               {/* Email */}
-              <li className="flex justify-center">
+              <li className="text-center sm:text-left">
                 <a
                   href="mailto:sales@digitallink-sa.com"
                   className="inline-flex items-center gap-2 hover:text-blue-300 transition-colors duration-300 group"
                 >
                   <Mail className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                  <span className="text-xs hover:text-blue-500 group-hover:no-underline cursor-pointer">
+                  <span className="text-xs hover:text-blue-300 group-hover:no-underline cursor-pointer">
                     sales@digitallink-sa.com
                   </span>
                 </a>
               </li>
 
               {/* Phone */}
-              <li className="flex justify-center">
+              <li className="text-center sm:text-left">
                 <a
                   href="tel:+966597015415"
                   className="inline-flex items-center gap-2 hover:text-blue-300 transition-colors duration-300 group"
                 >
                   <Phone className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                  <span className="text-xs hover:text-blue-500 group-hover:no-underline cursor-pointer">
+                  <span className="text-xs hover:text-blue-300 group-hover:no-underline cursor-pointer">
                     +966 59 701 5415
                   </span>
                 </a>
@@ -278,8 +272,8 @@ const Footer = () => {
           </div>
         </div>
         {/* Bottom Bar - Smaller */}
-        <div className="border-t border-gray-800 mt-4 sm:mt-6 pt-3 sm:pt-4">
-          <div className="text-center text-xs text-gray-400">
+        <div className="border-t border-gray-600 mt-4 sm:mt-6 pt-3 sm:pt-4">
+          <div className="text-center text-xs text-gray-300">
             <p>&copy; {currentYear} Digital Link. All rights reserved.</p>
           </div>
         </div>
