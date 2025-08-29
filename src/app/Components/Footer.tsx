@@ -134,7 +134,7 @@ const Footer = () => {
                 className="flex items-center group transition-all duration-500 ease-in-out"
               >
                 <Image
-                  src="/logo/logo.png"
+                  src="/logo.png"
                   alt="Company Logo"
                   width={200}
                   height={200}

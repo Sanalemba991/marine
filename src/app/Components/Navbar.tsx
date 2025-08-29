@@ -203,9 +203,9 @@ export default function Navbar() {
                 {/* Option 1: Single logo with color filter change */}
                 <Image
                   src="/logo.png"
-                  alt="DigitalLink"
-                  width={180}
-                  height={48}
+                  alt="Oasis Marine"
+                  width={200}
+                  height={200}
                   className={`h-10 w-auto logo-transition group-hover:scale-105 ${
                     isScrolled
                       ? "logo-color-dark" // Changes to dark when scrolled
