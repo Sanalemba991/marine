@@ -109,7 +109,7 @@ export default function WhyChooseUs() {
           }}
         >
           <h1 className="text-5xl font-bold text-gray-900">
-            Why Choose <span className='text-[#5555]'>Us</span>
+            Why Choose <span className='text-[#1e3a8a]'>Us</span>
           </h1>
         </motion.div>
 

@@ -8,8 +8,7 @@ import ProductsSection from "./Components/Products";
 import WhyChooseUs from "./Components/WhyChooseUs";
 import MarineSupplyPage from "./Components/MarineSupplyPage";
 import FAQ from "./Components/Faq";
-
-
+import Flipbook from "./Components/Flipbook";
 
 export default function Banner() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -18,48 +17,48 @@ export default function Banner() {
   const [direction, setDirection] = useState(0); // Add direction state
 
   // Array of banner images with descriptions and links
-const banners = [
-  {
-    image: "/banner/Award 2.png",
-    title: (
-      <>
-        Award-Winning <span style={{ color: "#555555" }}>Excellence</span>
-      </>
-    ),
-    description:
-      "Recognized globally for our innovative solutions and outstanding technological achievements.",
-  },
-  {
-    image: "/banner/P 2.png",
-    title: (
-      <>
-        Enterprise <span style={{ color: "#555555" }}>Solutions</span>
-      </>
-    ),
-    description:
-      "Complete surveillance ecosystems: high-definition cameras, reliable storage, professional cabling, and durable hard disks for long-term performance.",
-  },
-  {
-    image: "/banner/Contact 1.png",
-    title: (
-      <>
-        Strategic <span style={{ color: "#555555" }}>Partnership</span>
-      </>
-    ),
-    description:
-      "Partner with us to leverage cutting-edge technology and expert consultation for your business growth.",
-  },
-  {
-    image: "/banner/History.png",
-    title: (
-      <>
-        Innovation & <span style={{ color: "#555555" }}>Excellence</span>
-      </>
-    ),
-    description:
-      "Pioneering technological advancement with over two decades of industry expertise and innovation.",
-  },
-];
+  const banners = [
+    {
+      image: "/banner/Award 2.png",
+      title: (
+        <>
+          Award-Winning <span style={{ color: "#1e3a8a" }}>Excellence</span>
+        </>
+      ),
+      description:
+        "Recognized globally for our innovative solutions and outstanding technological achievements.",
+    },
+    {
+      image: "/banner/P 2.png",
+      title: (
+        <>
+          Enterprise <span style={{ color: "#1e3a8a" }}>Solutions</span>
+        </>
+      ),
+      description:
+        "Complete surveillance ecosystems: high-definition cameras, reliable storage, professional cabling, and durable hard disks for long-term performance.",
+    },
+    {
+      image: "/banner/Contact 1.png",
+      title: (
+        <>
+          Strategic <span style={{ color: "#1e3a8a" }}>Partnership</span>
+        </>
+      ),
+      description:
+        "Partner with us to leverage cutting-edge technology and expert consultation for your business growth.",
+    },
+    {
+      image: "/banner/History.png",
+      title: (
+        <>
+          Innovation & <span style={{ color: "#1e3a8a" }}>Excellence</span>
+        </>
+      ),
+      description:
+        "Pioneering technological advancement with over two decades of industry expertise and innovation.",
+    },
+  ];
 
   // Auto-rotate images every 5 seconds
   useEffect(() => {
@@ -233,13 +232,13 @@ const banners = [
           ))}
         </div>
       </div>
-      <MarineEquipmentPage/>
-      <ProductsSection/>
-      <WhyChooseUs/>
-      <MarineSupplyPage/>
-      <FAQ/>
-      
+      <MarineEquipmentPage />
+      <ProductsSection />
+      <WhyChooseUs />
+      <MarineSupplyPage />
+
+      <FAQ />
+      <Flipbook />
     </div>
-    
   );
 }

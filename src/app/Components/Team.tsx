@@ -225,7 +225,7 @@ const Team = () => {
                 }}
                 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-6 leading-tight"
               >
-                About <span className="text-gray-400 drop-shadow-lg">Us</span>
+                About <span className="text-blue-900 drop-shadow-lg">Us</span>
               </motion.h1>
 
               <motion.p
@@ -304,7 +304,7 @@ const Team = () => {
             <h3 className="text-xl md:text-2xl font-bold text-gray-900">
               MOIDEEN AHAMED
             </h3>
-            <span className="text-gray-400 font-semibold text-sm md:text-base uppercase tracking-wider block">
+            <span className="text-blue-900 font-semibold text-sm md:text-base uppercase tracking-wider block">
               CHIEF EXECUTIVE OFFICER
             </span>
           </motion.div>
@@ -419,7 +419,7 @@ const Team = () => {
               >
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
                   Reliable Marine and{" "}
-                  <span className="text-[#5555]">Oilfield Equipment</span>{" "}
+                  <span className="text-blue-900">Oilfield Equipment</span>{" "}
                   Supplier in the UAE
                 </h2>
               </motion.div>
@@ -582,7 +582,7 @@ const Team = () => {
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
                     At{" "}
-                    <span className="text-[#5555] font-semibold">
+                    <span className="text-blue-900 font-semibold">
                       Oasis Marine
                     </span>
                     , we strive to minimize waste across all levels of our

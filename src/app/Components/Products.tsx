@@ -138,11 +138,11 @@ export default function ProductsSection() {
             variants={titleVariants}
             className="text-2xl md:text-4xl font-bold text-gray-800 mb-6" // Reduced from text-xl md:text-5xl
           >
-            Explore Our Latest <span className='text-[#5555]'>Products</span>
+            Explore Our Latest <span className='text-[#1e3a8a]'>Products</span>
           </motion.h2>
           <motion.div 
             variants={lineVariants}
-            className="w-24 h-1 bg-gray-400 mx-auto"
+            className="w-24 h-1 bg-blue-900 mx-auto"
           />
         </div>
 

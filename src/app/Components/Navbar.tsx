@@ -59,7 +59,7 @@ const useNavbarStyles = () => {
   left: 50%;
   width: 0;
   height: 3px;
-  background: linear-gradient(90deg, #6b7280, #4b5563);
+  background: linear-gradient(90deg, #1e3a8a, #1e40af);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform: translateX(-50%);
   border-radius: 2px 2px 0 0;
@@ -75,8 +75,8 @@ const useNavbarStyles = () => {
 }
 
 .nav-link-enhanced.transparent::after {
-  background: linear-gradient(90deg, #9ca3af, #6b7280);
-  box-shadow: 0 0 8px rgba(107, 114, 128, 0.4);
+  background: linear-gradient(90deg, #1e3a8a, #1e40af);
+  box-shadow: 0 0 8px rgba(30, 58, 138, 0.4);
 }
 
 .nav-link-enhanced.transparent:hover {
@@ -200,44 +200,15 @@ export default function Navbar() {
                 href="/"
                 className="flex items-center group transition-all duration-300 ease-out"
               >
-                {/* Option 1: Single logo with color filter change */}
+                {/* Logo will now remain in original color regardless of scroll state */}
                 <Image
                   src="/logo.png"
                   alt="Oasis Marine"
-                  width={200}
+                  width={900}
                   height={200}
-                  className={`h-10 w-auto logo-transition group-hover:scale-105 ${
-                    isScrolled
-                      ? "logo-color-dark" // Changes to dark when scrolled
-                      : ""
-                  }`}
+                  className="h-10 w-auto logo-transition group-hover:scale-105"
                   priority
                 />
-
-                {/* Option 2: Two different logos with fade transition (uncomment to use)
-                <div className="relative">
-                  <Image
-                    src="/logo.png"
-                    alt="DigitalLink"
-                    width={180}
-                    height={48}
-                    className={`h-10 w-auto logo-fade-transition group-hover:scale-105 ${
-                      isScrolled ? "opacity-0" : "opacity-100"
-                    }`}
-                    priority
-                  />
-                  <Image
-                    src="/logo-dark.png"
-                    alt="DigitalLink"
-                    width={180}
-                    height={48}
-                    className={`h-10 w-auto logo-fade-transition group-hover:scale-105 absolute top-0 left-0 ${
-                      isScrolled ? "opacity-100" : "opacity-0"
-                    }`}
-                    priority
-                  />
-                </div>
-                */}
               </Link>
             </div>
 
@@ -483,7 +454,7 @@ function MobileNavLink({
     >
       {children}
       {isActive && (
-        <div className="ml-auto w-2 h-2 bg-gray-500 rounded-full animate-pulse"></div>
+        <div className="ml-auto w-2 h-2 bg-blue-900 rounded-full animate-pulse"></div>
       )}
     </Link>
   );

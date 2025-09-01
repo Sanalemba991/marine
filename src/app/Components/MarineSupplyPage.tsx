@@ -42,7 +42,7 @@ const MarineSupplyPage = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           Your Trusted Partner in{" "}
-        <span className="text-[#5555]">
+        <span className="text-[#1e3a8a]">
             Marine and Oilfield Supply
           </span>
         </motion.h1>

@@ -202,7 +202,7 @@ const Branch: React.FC = () => {
                 }}
                 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-8 leading-tight"
               >
-                Our <span className="text-gray-400 drop-shadow-lg">Branch</span>
+                Our <span className="text-blue-900 drop-shadow-lg">Branch</span>
               </motion.h1>
 
               <motion.p
@@ -217,7 +217,7 @@ const Branch: React.FC = () => {
                     },
                   },
                 }}
-                className="text-lg sm:text-xl lg:text-2xl text-gray-100 mb-8 leading-relaxed max-w-2xl drop-shadow-md"
+                className="text-lg sm:text-xl lg:text-2xl text-blue-100 mb-8 leading-relaxed max-w-2xl drop-shadow-md"
               >
                 Empowering innovation, education, and digital transformation
                 across all our branches.
@@ -234,11 +234,11 @@ const Branch: React.FC = () => {
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
         >
           <div className="animate-bounce flex flex-col items-center">
-            <span className="text-sm text-gray-200 mb-2 drop-shadow-md">
+            <span className="text-sm text-blue-200 mb-2 drop-shadow-md">
               Scroll down
             </span>
             <svg
-              className="w-6 h-6 text-gray-200 drop-shadow-md"
+              className="w-6 h-6 text-blue-200 drop-shadow-md"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -276,8 +276,8 @@ const Branch: React.FC = () => {
                   <span className="block text-2xl sm:text-3xl md:text-4xl mb-2">
                     MATERIALS TRADING LLC,
                   </span>
-                  <span className="block text-2xl sm:text-3xl md:text-4xl">
-                    DEIRA, DUBAI
+                  <span className=" block text-2xl sm:text-3xl md:text-4xl">
+                    DEIRA, <span className="text-blue-900">DUBAI</span>
                   </span>
                 </h2>
 

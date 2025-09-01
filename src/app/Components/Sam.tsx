@@ -47,7 +47,7 @@ const Sam = () => {
           >
             <h2 className="text-3xl  text-black leading-tight">
               Commitment to Customer<br />
-              Satisfaction
+             <span className='text-blue-900'>Satisfaction</span> 
             </h2>
             <p className="text-gray-600 leading-relaxed text-base">
               We are deeply committed to providing the best customer experience. Our 
@@ -67,7 +67,7 @@ const Sam = () => {
             className="space-y-6"
           >
             <h2 className="text-3xl  text-black leading-tight">
-              Product Range
+              Product <span className='text-blue-900'>Range</span>
             </h2>
             <p className="text-gray-600 leading-relaxed text-base">
               Our product portfolio includes a comprehensive range of building materials 

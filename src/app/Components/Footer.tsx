@@ -73,7 +73,7 @@ const Footer = () => {
     <footer 
       className=" text-white relative"
       style={{
-        backgroundImage: "url('/footerhome.png')",
+        backgroundImage: "url('/footer.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -236,8 +236,8 @@ const Footer = () => {
                   }}
                   className="inline-flex items-center gap-2 hover:text-blue-300 transition-colors duration-300 group"
                 >
-                  <MapPin className="w-4 h-4 text-blue-400 flex-shrink-0" />
-                  <span className="text-xs hover:text-blue-300 group-hover:no-underline cursor-pointer">
+                  <MapPin className="w-4 h-4 text-blue-900 flex-shrink-0" />
+                  <span className="text-xs hover:text-blue-400 group-hover:no-underline cursor-pointer">
                     Olaya Street, Riyadh, Saudi Arabia
                   </span>
                 </button>
@@ -246,12 +246,12 @@ const Footer = () => {
               {/* Email */}
               <li className="text-center sm:text-left">
                 <a
-                  href="mailto:sales@digitallink-sa.com"
+                  href="mailto:sales@oasismarineuae.com"
                   className="inline-flex items-center gap-2 hover:text-blue-300 transition-colors duration-300 group"
                 >
-                  <Mail className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                  <Mail className="w-4 h-4 text-blue-900 flex-shrink-0" />
                   <span className="text-xs hover:text-blue-300 group-hover:no-underline cursor-pointer">
-                    sales@digitallink-sa.com
+                   sales@oasismarineuae.com
                   </span>
                 </a>
               </li>
@@ -260,11 +260,11 @@ const Footer = () => {
               <li className="text-center sm:text-left">
                 <a
                   href="tel:+966597015415"
-                  className="inline-flex items-center gap-2 hover:text-blue-300 transition-colors duration-300 group"
+                  className="inline-flex items-center gap-2 hover:text-blue-900 transition-colors duration-300 group"
                 >
-                  <Phone className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                  <Phone className="w-4 h-4 text-blue-900 flex-shrink-0" />
                   <span className="text-xs hover:text-blue-300 group-hover:no-underline cursor-pointer">
-                    +966 59 701 5415
+                    +971563096262
                   </span>
                 </a>
               </li>
@@ -274,7 +274,7 @@ const Footer = () => {
         {/* Bottom Bar - Smaller */}
         <div className="border-t border-gray-600 mt-4 sm:mt-6 pt-3 sm:pt-4">
           <div className="text-center text-xs text-gray-300">
-            <p>&copy; {currentYear} Digital Link. All rights reserved.</p>
+            <p>&copy; {currentYear} Oasis Marine. All rights reserved.</p>
           </div>
         </div>
       </div>

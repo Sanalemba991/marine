@@ -103,7 +103,7 @@ export default function MarineEquipmentPage() {
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             >
               Trusted Marine & Oilfield{' '}
-              <span className="text-[#5555]">Equipment Supplier</span> in UAE
+              <span className="text-[#1e3a8a]">Equipment Supplier</span> in UAE
             </motion.h1>
             
             <motion.div 

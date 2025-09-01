@@ -70,13 +70,13 @@ const Ram = () => {
     <div className="max-w-4xl mx-auto px-4 py-8">
       <AnimatedSection variants={titleVariant}>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-          Expanded Reach Across the Middle East
+          Expanded Reach Across the <span className='text-blue-900'>Middle East</span>
         </h1>
       </AnimatedSection>
       
       <AnimatedSection variants={textVariant}>
         <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-          Over the years, OASIS STAR has expanded its operations, serving not only the UAE but also various regions across the Middle East. Our strategic presence in key markets ensures that we can deliver a wide range of premium building materials to meet the needs of contractors, developers, and businesses in countries including Saudi Arabia, Qatar, Oman and beyond.
+          Over the years, <span className='font-bold  text-blue-900'>OASIS STAR</span> has expanded its operations, serving not only the UAE but also various regions across the Middle East. Our strategic presence in key markets ensures that we can deliver a wide range of premium building materials to meet the needs of contractors, developers, and businesses in countries including Saudi Arabia, Qatar, Oman and beyond.
         </p>
       </AnimatedSection>
       
