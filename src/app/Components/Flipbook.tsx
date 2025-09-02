@@ -726,4 +726,4 @@ export default function Flipbook() {
       <BlogFlipbook />
     </ErrorBoundary>
   );
-}
+} 
