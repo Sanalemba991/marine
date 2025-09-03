@@ -236,9 +236,8 @@ export default function Banner() {
       <ProductsSection />
       <WhyChooseUs />
       <MarineSupplyPage />
-
-      <FAQ />
       <Flipbook />
+      <FAQ />
     </div>
   );
 }

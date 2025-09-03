@@ -1,6 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import HTMLFlipBook from "react-pageflip";
+import { motion, AnimatePresence } from "framer-motion";
+
+// Import all 32 images
 import image1 from "../assets/book-pages/page-1.jpg";
 import image2 from "../assets/book-pages/page-2.jpg";
 import image3 from "../assets/book-pages/page-3.jpg";
@@ -18,30 +23,21 @@ import image14 from "../assets/book-pages/page-14.jpg";
 import image15 from "../assets/book-pages/page-15.jpg";
 import image16 from "../assets/book-pages/page-16.jpg";
 import image17 from "../assets/book-pages/page-17.jpg";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Calendar,
-  User,
-  Clock,
-  Tag,
-} from "lucide-react";
-import HTMLFlipBook from "react-pageflip";
-import { motion, AnimatePresence } from "framer-motion";
-
-interface BlogPage {
-  id: number;
-  title: string;
-  subtitle: string;
-  author: string;
-  date: string;
-  readTime: string;
-  category: string;
-  image: any;
-  excerpt: string;
-  content: string;
-  tags: string[];
-}
+import image18 from "../assets/book-pages/page-18.jpg";
+import image19 from "../assets/book-pages/page-19.jpg";
+import image20 from "../assets/book-pages/page-20.jpg";
+import image21 from "../assets/book-pages/page-21.jpg";
+import image22 from "../assets/book-pages/page-22.jpg";
+import image23 from "../assets/book-pages/page-23.jpg";
+import image24 from "../assets/book-pages/page-24.jpg";
+import image25 from "../assets/book-pages/page-25.jpg";
+import image26 from "../assets/book-pages/page-26.jpg";
+import image27 from "../assets/book-pages/page-27.jpg";
+import image28 from "../assets/book-pages/page-28.jpg";
+import image29 from "../assets/book-pages/page-29.jpg";
+import image30 from "../assets/book-pages/page-30.jpg";
+import image31 from "../assets/book-pages/page-31.jpg";
+import image32 from "../assets/book-pages/page-32.jpg";
 
 // Page component with forwardRef for react-pageflip compatibility
 const Page = React.forwardRef(
@@ -49,8 +45,8 @@ const Page = React.forwardRef(
     return (
       <div
         ref={ref}
-        className="h-full w-full bg-white overflow-hidden"
-        style={{ boxShadow: "none" }}
+        className="h-full w-full bg-white rounded-lg shadow-lg overflow-hidden"
+        style={{ padding: "16px", boxSizing: "border-box" }}
       >
         {props.children}
       </div>
@@ -65,11 +61,10 @@ const PageCover = React.forwardRef(
     return (
       <div
         ref={ref}
-        className="h-full w-full bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center"
+        className="h-full w-full bg-white rounded-lg shadow-xl overflow-hidden"
         data-density="hard"
-        style={{ boxShadow: "none" }}
       >
-        <div className="text-center text-white p-8">{props.children}</div>
+        {props.children}
       </div>
     );
   }
@@ -81,247 +76,100 @@ const BlogFlipbook = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [isFlipbookReady, setIsFlipbookReady] = useState(false);
+  const [dimensions, setDimensions] = useState({ width: 400, height: 500 });
   const flipBook = useRef<any>(null);
+  const flipbookContainer = useRef<HTMLDivElement>(null);
 
- const blogPages: BlogPage[] = [
-    {
-      id: 1,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image1,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 2,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image2,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 3,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image3,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 4,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image4,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    // Add more pages as needed
-    {
-      id: 5,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image5,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 6,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image6,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 7,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image7,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 8,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image8,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 9,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image9,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 10,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image10,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 11,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image11,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 12,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image12,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 13,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image13,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 14,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image14,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 15,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image15,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 16,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image16,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 17,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image17,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    {
-      id: 18,
-      title: "",
-      subtitle: "",
-      author: "",
-      date: "",
-      readTime: "",
-      category: "",
-      image: image17,
-      excerpt: "",
-      content: "",
-      tags: [],
-    },
-    
+  // Random cover images from Unsplash
+  const frontCoverImage = image1;
+  const backCoverImage = image2;
 
+  const blogPages = [
+    { id: 1, image: image1 },
+    { id: 2, image: image2 },
+    { id: 3, image: image3 },
+    { id: 4, image: image4 },
+    { id: 5, image: image5 },
+    { id: 6, image: image6 },
+    { id: 7, image: image7 },
+    { id: 8, image: image8 },
+    { id: 9, image: image9 },
+    { id: 10, image: image10 },
+    { id: 11, image: image11 },
+    { id: 12, image: image12 },
+    { id: 13, image: image13 },
+    { id: 14, image: image14 },
+    { id: 15, image: image15 },
+    { id: 16, image: image16 },
+    { id: 17, image: image17 },
+    { id: 18, image: image18 },
+    { id: 19, image: image19 },
+    { id: 20, image: image20 },
+    { id: 21, image: image21 },
+    { id: 22, image: image22 },
+    { id: 23, image: image23 },
+    { id: 24, image: image24 },
+    { id: 25, image: image25 },
+    { id: 26, image: image26 },
+    { id: 27, image: image27 },
+    { id: 28, image: image28 },
+    { id: 29, image: image29 },
+    { id: 30, image: image30 },
+    { id: 31, image: image31 },
+    { id: 32, image: image32 },
   ];
+
+  // Prevent default scroll behavior when interacting with flipbook
+  const preventScroll = useCallback((e: WheelEvent | TouchEvent) => {
+    if (
+      flipbookContainer.current &&
+      flipbookContainer.current.contains(e.target as Node)
+    ) {
+      e.preventDefault();
+    }
+  }, []);
+
+  useEffect(() => {
+    // Add event listeners to prevent scrolling when interacting with flipbook
+    const container = flipbookContainer.current;
+    if (container) {
+      container.addEventListener("wheel", preventScroll, { passive: false });
+      container.addEventListener("touchmove", preventScroll, {
+        passive: false,
+      });
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener("wheel", preventScroll);
+        container.removeEventListener("touchmove", preventScroll);
+      }
+    };
+  }, [preventScroll]);
+
+  // Responsive dimensions - only set on client side
+  useEffect(() => {
+    const getFlipbookDimensions = () => {
+      if (window.innerWidth < 640) {
+        return { width: 280, height: 380 };
+      } else if (window.innerWidth < 768) {
+        return { width: 350, height: 450 };
+      } else if (window.innerWidth < 1024) {
+        return { width: 450, height: 550 };
+      } else {
+        return { width: 500, height: 600 };
+      }
+    };
+
+    setDimensions(getFlipbookDimensions());
+
+    const handleResize = () => {
+      setDimensions(getFlipbookDimensions());
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const nextPage = () => {
     if (flipBook.current && isFlipbookReady && currentPage < totalPages - 1) {
@@ -394,77 +242,106 @@ const BlogFlipbook = () => {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [currentPage, isFlipbookReady]);
 
-  // Calculate dimensions based on aspect ratio (1747x2486 ≈ 0.702)
-  const getFlipbookDimensions = () => {
-    if (typeof window === "undefined") return { width: 350, height: 500 };
-
-    const aspectRatio = 1747 / 2486; // Your image aspect ratio
-    
-    if (window.innerWidth < 640) {
-      const width = Math.min(280, window.innerWidth - 40);
-      return { width, height: width / aspectRatio };
-    } else if (window.innerWidth < 768) {
-      const width = Math.min(350, window.innerWidth - 60);
-      return { width, height: width / aspectRatio };
-    } else if (window.innerWidth < 1024) {
-      const width = Math.min(450, window.innerWidth - 80);
-      return { width, height: width / aspectRatio };
-    } else {
-      const width = Math.min(500, window.innerWidth - 100);
-      return { width, height: width / aspectRatio };
-    }
-  };
-
-  const { width, height } = getFlipbookDimensions();
-
-  // Calculate the actual content page number
-  const contentPageNumber = currentPage === 0 ? 0 : // Cover page
-                          currentPage > totalPages - 2 ? blogPages.length : // Back cover or beyond
-                          currentPage; // Content pages
-
-  // Calculate total content pages (excluding covers)
-  const totalContentPages = Math.max(0, totalPages - 2);
-
   return (
-    <div className="min-h-screen w-full flex items-center justify-center relative py-8 px-4 bg-gradient-to-br from-gray-100 to-gray-200">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
+    <div className="min-h-screen w-full items-center justify-center relative py-8 px-4 overflow-hidden overscroll-none">
+      <div className="max-w-4xl mx-auto text-center py-16 px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <motion.span
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-sm font-semibold tracking-wider text-[#1e3a8a] uppercase bg-blue-50 px-4 py-2 rounded-full inline-block"
+          >
+            Interactive Product Catalog
+          </motion.span>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="text-4xl md:text-5xl font-bold text-gray-900 mt-6 mb-6 leading-tight"
+          >
+            <span className="text-[#1e3a8a]">Oasis Marine</span> Trading LLC <br />
+            Digital Product Catalog
+          </motion.h1>
+
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 80 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="h-1 w-20 bg-[#1e3a8a] mx-auto mb-8"
+          ></motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, delay: 0.6, staggerChildren: 0.2 }}
+          className="text-lg text-gray-700 mb-8 leading-relaxed space-y-4"
+        >
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Explore our comprehensive digital product catalog featuring premium
+            marine and oilfield equipment. This interactive flipbook showcases
+            our complete range of high-quality products including marine valves,
+            industrial fittings, flanges, gasket sheets, stainless steel
+            components, and specialized repair solutions with detailed
+            specifications and technical information.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Navigate through 68 pages of carefully curated products designed for
+            marine and oil field industries. Each page provides detailed product
+            information, technical specifications, and quality certifications,
+            offering you a complete overview of our extensive inventory and
+            capabilities in the marine equipment sector.
+          </motion.p>
+        </motion.div>
       </div>
 
-      {/* Main Flipbook Container */}
+      {/* Main Flipbook Container with ref */}
       <div
+        ref={flipbookContainer}
         className="relative w-full max-w-4xl mx-auto"
-        style={{ height: `${height}px` }}
+        style={{ height: `${dimensions.height}px` }}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
         {/* React PageFlip Component */}
         <HTMLFlipBook
           ref={flipBook}
-          width={width}
-          height={height}
+          width={dimensions.width}
+          height={dimensions.height}
           size="stretch"
-          minWidth={250}
+          minWidth={280}
           maxWidth={600}
-          minHeight={350}
-          maxHeight={850}
-          maxShadowOpacity={0.3}
+          minHeight={380}
+          maxHeight={700}
+          maxShadowOpacity={0.5}
           showCover={true}
           mobileScrollSupport={true}
           onFlip={onPage}
           className="bg-transparent mx-auto"
-          style={{ 
-            position: "relative", 
-            border: "none", 
-            borderRadius: "0",
-            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)"
-          }}
+          style={{ position: "relative" }}
           startPage={0}
           drawShadow={true}
           flippingTime={800}
@@ -473,109 +350,52 @@ const BlogFlipbook = () => {
           autoSize={true}
           clickEventForward={true}
           useMouseEvents={true}
-          swipeDistance={0}
-          showPageCorners={false}
+          swipeDistance={30} // Increased swipe distance for better mobile experience
+          showPageCorners={true}
           disableFlipByClick={false}
         >
-          {/* Cover Page with Full Background Image */}
+          {/* Front Cover Page - Image Only */}
           <PageCover>
-            <div
-              className="h-full w-full relative overflow-hidden"
-              style={{ border: "none", borderRadius: "0" }}
-            >
-              {/* Background Image - Using first image for cover */}
+            <div className="h-full w-full flex items-center justify-center bg-gray-100">
               <img
-                src={blogPages[0]?.image?.src}
-                alt="Cover"
-                className="w-full h-full object-cover"
-                style={{ border: "none", borderRadius: "0" }}
+                src={frontCoverImage.src}
+                alt="Book Cover"
+                className="max-w-full max-h-full object-contain"
+                style={{ width: "auto", height: "auto" }}
               />
-
-              {/* Overlay for better text readability */}
-              <div className="absolute inset-0 bg-black/40"></div>
-
-              {/* Content overlay */}
-              <motion.div
-                className="absolute inset-0 flex flex-col justify-center items-center text-white p-6 z-10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                <h1 className="text-2xl md:text-3xl font-bold mb-3 text-center drop-shadow-lg">
-                  Tech Blog Flipbook
-                </h1>
-                <p className="text-lg md:text-xl opacity-90 text-center drop-shadow-lg">
-                  Interactive reading experience
-                </p>
-                <div className="mt-6 text-xs md:text-sm opacity-80 text-center">
-                  <p className="drop-shadow-md">
-                    Use arrow keys or navigation buttons
-                  </p>
-                  <p className="drop-shadow-md">
-                    Click on page corners to flip
-                  </p>
-                </div>
-              </motion.div>
             </div>
           </PageCover>
 
-          {/* Content Pages */}
+          {/* Content Pages - Only Images */}
           {blogPages.map((blog, index) => (
             <Page key={blog.id}>
-              {/* Full-size Image Section */}
-              <div
-                className="h-full w-full relative overflow-hidden bg-gray-100 flex items-center justify-center"
-                style={{ border: "none", borderRadius: "0" }}
-              >
-                <img
-                  src={blog.image.src}
-                  alt={blog.title || `Page ${blog.id}`}
-                  className="max-w-full max-h-full object-contain"
-                  style={{ border: "none", borderRadius: "0" }}
-                />
-                <div className="absolute bottom-2 left-0 right-0 text-center text-xs text-gray-500">
+              <div className="flex flex-col h-full">
+                {/* Image Section - Full Page */}
+                <div className="flex-1 relative overflow-hidden mb-3">
+                  <img
+                    src={blog.image.src}
+                    alt={`Page ${index + 1}`}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+
+                {/* Page Number */}
+                <div className="pt-2 text-center text-xs text-gray-500 border-t mt-2">
                   Page {index + 1} of {blogPages.length}
                 </div>
               </div>
             </Page>
           ))}
 
-          {/* Back Cover with Full Background Image */}
+          {/* Back Cover Page - Image Only */}
           <PageCover>
-            <div
-              className="h-full w-full relative overflow-hidden"
-              style={{ border: "none", borderRadius: "0" }}
-            >
-              {/* Background Image - Using last image for back cover */}
+            <div className="h-full w-full flex items-center justify-center bg-gray-100">
               <img
-                src={blogPages[blogPages.length - 1]?.image?.src}
-                alt="Back Cover"
-                className="w-full h-full object-cover"
-                style={{ border: "none", borderRadius: "0" }}
+                src={backCoverImage.src}
+                alt="Book Back Cover"
+                className="max-w-full max-h-full object-contain"
+                style={{ width: "auto", height: "auto" }}
               />
-
-              {/* Overlay for better text readability */}
-              <div className="absolute inset-0 bg-black/40"></div>
-
-              {/* Content overlay */}
-              <motion.div
-                className="absolute inset-0 flex flex-col justify-center items-center text-white p-6 z-10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center drop-shadow-lg">
-                  Thank You
-                </h2>
-                <p className="text-lg md:text-xl opacity-90 text-center drop-shadow-lg">
-                  Hope you enjoyed the reading experience
-                </p>
-                <div className="mt-6 text-xs md:text-sm opacity-80 text-center">
-                  <p className="drop-shadow-md">
-                    Created with React & react-pageflip
-                  </p>
-                </div>
-              </motion.div>
             </div>
           </PageCover>
         </HTMLFlipBook>
@@ -619,32 +439,8 @@ const BlogFlipbook = () => {
           )}
         </AnimatePresence>
 
-        {/* Page Indicators */}
-        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-10">
-          <div className="flex gap-1.5">
-            {Array.from({ length: totalPages }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToPage(index)}
-                disabled={!isFlipbookReady}
-                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                  index === currentPage
-                    ? "bg-white scale-125 shadow-lg"
-                    : "bg-white/50 hover:bg-white/80 hover:scale-110"
-                } ${!isFlipbookReady ? "opacity-50 cursor-not-allowed" : ""}`}
-              />
-            ))}
-          </div>
-        </div>
-
         {/* Floating Page Counter */}
-        <div className="absolute top-2 right-2 z-10">
-          <div className="bg-black/80 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs font-medium">
-            {currentPage === 0 ? "Cover" : 
-             currentPage >= totalPages - 1 ? "Back Cover" : 
-             `Page ${contentPageNumber} of ${totalContentPages}`}
-          </div>
-        </div>
+      
 
         {/* Keyboard Navigation Hint */}
         <motion.div
@@ -686,7 +482,7 @@ class ErrorBoundary extends React.Component<
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
-    console.error("Blog flipbook error:", error, errorInfo);
+    console.error("Flipbook error:", error, errorInfo);
   }
 
   resetErrorBoundary = () => {
@@ -726,4 +522,4 @@ export default function Flipbook() {
       <BlogFlipbook />
     </ErrorBoundary>
   );
-} 
+}
